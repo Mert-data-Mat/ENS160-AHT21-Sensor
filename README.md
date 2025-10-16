@@ -37,7 +37,7 @@ This project shows how to:
 
 ![Wiring diagram](images/FJPJ494LR97Z1RS.png)
 
-**Figure 2.** In this image wiring is shown with the .
+**Figure 2.** In this image wiring is shown with the Wemos D1 mini (ESP8266).
 
 
 
