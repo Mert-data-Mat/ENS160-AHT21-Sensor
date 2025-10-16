@@ -1,4 +1,7 @@
-#ENS160
+# ENS160 Sensor
+
+I couldn’t find much clear information or working examples online for this specific ENS160 + AHT2x combo sensor, especially when using it with boards like the Wemos D1 mini. Most tutorials were either outdated or incomplete, so I decided to build and document a clean, fully tested setup myself — including wiring, libraries, and working code — to make it easier for others to get reliable readings right away.
+
 Minimal and **fully working** setup for the combined air quality and temperature/humidity sensor board:
 
 - **ENS160** → Air Quality Index (AQI), Total Volatile Organic Compounds (TVOC, ppb), Equivalent CO₂ (eCO₂, ppm)  
@@ -8,7 +11,7 @@ Tested with **Arduino UNO R4** — can easily be adapted to ESP32.
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This project shows how to:
 - Read real-time **air quality**, **TVOC**, and **eCO₂** values  
@@ -17,7 +20,7 @@ This project shows how to:
 - Most importantly **wiring**.
 ---
 
-## 🪛 Wiring
+## Wiring
 
 | ENS160 + AHT2x Module | Arduino UNO R4 | Description |
 |:----------------------|:------------------------|:-------------|
