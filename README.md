@@ -1,5 +1,7 @@
 # ENS160 Sensor
 
+![Here is our little cheap hero ](images/FQR9R7ALR85VNX0.png)
+
 I couldn’t find much clear information or working examples online for this specific ENS160 + AHT2x combo sensor, especially when using it with boards like the Wemos D1 mini. Most tutorials were either outdated or incomplete, so I decided to build and document a clean, fully tested setup myself — including wiring, libraries, and working code — to make it easier for others to get reliable readings right away.
 
 Minimal and **fully working** setup for the combined air quality and temperature/humidity sensor board:
@@ -30,6 +32,8 @@ This project shows how to:
 | **SDA** | **SDA** | I²C Data |
 
 > Rest of the pins are for the special cases
+
+![Wiring diagram](images/FJPJ494LR97Z1RS.png)
 
 
 ## Required Libraries
