@@ -4,6 +4,9 @@
 
 **Figure 1.** Here is our little cheap hero.
 
+[🛒 **AliExpress Link of the Sensor**](https://de.aliexpress.com/item/1005009070352900.html?spm=a2g0o.order_list.order_list_main.11.7e121802fccWTp&gatewayAdapt=glo2deu)
+
+
 I couldn’t find much clear information or working examples online for this specific ENS160 combo sensor, especially when using it with boards like the Wemos D1 mini. Most tutorials were either outdated or incomplete, so I decided to build and document a clean, fully tested setup myself — including wiring, libraries, and working code — to make it easier for others to get reliable readings right away.
 
 Minimal and **fully working** setup for the combined air quality and temperature/humidity sensor board:
