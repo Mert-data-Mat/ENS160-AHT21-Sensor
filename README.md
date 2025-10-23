@@ -59,7 +59,7 @@ After confirming stable ENS160 + AHT21 readings over I²C, I extended the projec
 This setup turns one board into a sensor node (TX) and another into a receiver (RX) that logs and displays data — no Wi-Fi network or internet required.
 
 Data Packet Structure
-'''cpp
+
 typedef struct __attribute__((packed)) {
   uint8_t  aqi;          // Air Quality Index (1–5)
   uint16_t tvoc;         // Total VOC (ppb)
@@ -67,7 +67,8 @@ typedef struct __attribute__((packed)) {
   float    temperature;  // °C
   float    humidity;     // %RH
 } AirData_t;
-'''
+
+
 ✅ Compact (13 bytes) – efficient for ESP-NOW transmission
 ✅ Binary-safe – no String or text parsing
 ✅ Identical on both sender and receiver sides
