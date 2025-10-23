@@ -100,6 +100,8 @@ feed data to dashboards, displays, or data loggers — **no cables, no router, j
 ![Serial Outputs via ESP NOW ](images/results.png)
 
 **Figure 4.** Outputs via ESP NOW
+
+
 ---
 
 ## 🛠️ Next Steps
