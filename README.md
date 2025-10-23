@@ -53,5 +53,29 @@ Install from **Arduino IDE → Library Manager**:
 | **Adafruit AHTX0** | For AHT20/AHT21 temperature & humidity |
 | *(optional)* **ScioSense ENS160** | For ENS160 high-level API (some boards use modified forks) |
 
+## Wireless ESP-NOW Extension (ESP8266)
+
+After getting stable ENS160 + AHT21 readings over I²C, I extended the setup to work completely wirelessly using ESP-NOW on two Wemos D1 mini boards.
+This lets one board act as a sensor node, sending air-quality data to another board that simply receives and prints it — no Wi-Fi router or internet required.
+
+typedef struct __attribute__((packed)) {
+  uint8_t  aqi;          // Air Quality Index (1–5)
+  uint16_t tvoc;         // Total VOC (ppb)
+  uint16_t eco2;         // Equivalent CO₂ (ppm)
+  float    temperature;  // °C
+  float    humidity;     // %RH
+} AirData_t;
+
+Compact 12-byte packet for reliable ESP-NOW transmission
+Binary-safe and efficient — avoids String or text parsing
+Matches exactly on both sender and receiver sides
+
+🧩 How It Works
+	1.	The sender reads ENS160 + AHT21 data and sends an AirData_t packet via ESP-NOW every 0.5 s.
+	2.	The receiver runs a simple listener sketch that prints all incoming values with AQI labels.
+	3.	Both devices use channel 1, and the sender is paired to the receiver’s AP MAC address.
+
+This small addition turns the ENS160 module into a wireless air-quality telemetry node that can feed data to dashboards, displays, or dataloggers without any cables.
+
 
 [📘 **Source**](https://www.instructables.com/ENS160-AHT21-Sensor-for-Arduino/)
