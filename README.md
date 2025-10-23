@@ -53,11 +53,13 @@ Install from **Arduino IDE → Library Manager**:
 | **Adafruit AHTX0** | For AHT20/AHT21 temperature & humidity |
 | *(optional)* **ScioSense ENS160** | For ENS160 high-level API (some boards use modified forks) |
 
-## Wireless ESP-NOW Extension (ESP8266)
+📡 Wireless ESP-NOW Extension (ESP8266)
 
-After getting stable ENS160 + AHT21 readings over I²C, I extended the setup to work completely wirelessly using ESP-NOW on two Wemos D1 mini boards.
-This lets one board act as a sensor node, sending air-quality data to another board that simply receives and prints it — no Wi-Fi router or internet required.
+After confirming stable ENS160 + AHT21 readings over I²C, I extended the project to work completely wirelessly using ESP-NOW on two Wemos D1 mini boards.
+This setup turns one board into a sensor node (TX) and another into a receiver (RX) that logs and displays data — no Wi-Fi network or internet required.
 
+Data Packet Structure
+'''cpp
 typedef struct __attribute__((packed)) {
   uint8_t  aqi;          // Air Quality Index (1–5)
   uint16_t tvoc;         // Total VOC (ppb)
@@ -65,17 +67,30 @@ typedef struct __attribute__((packed)) {
   float    temperature;  // °C
   float    humidity;     // %RH
 } AirData_t;
+'''
+✅ Compact (13 bytes) – efficient for ESP-NOW transmission
+✅ Binary-safe – no String or text parsing
+✅ Identical on both sender and receiver sides
 
-Compact 12-byte packet for reliable ESP-NOW transmission
-Binary-safe and efficient — avoids String or text parsing
-Matches exactly on both sender and receiver sides
+ How It Works
+	1.	Sender (TX) reads ENS160 + AHT21 data and transmits an AirData_t packet via ESP-NOW every 0.5 s.
+	2.	Receiver (RX) listens and prints incoming readings in human-readable form.
+	3.	Both devices operate on Wi-Fi channel 1, with the sender paired to the receiver’s AP MAC address.
 
-🧩 How It Works
-	1.	The sender reads ENS160 + AHT21 data and sends an AirData_t packet via ESP-NOW every 0.5 s.
-	2.	The receiver runs a simple listener sketch that prints all incoming values with AQI labels.
-	3.	Both devices use channel 1, and the sender is paired to the receiver’s AP MAC address.
+This extension effectively turns the ENS160 module into a wireless air-quality telemetry node that can feed data to dashboards, displays, or loggers — no cables, no router, just power.
 
-This small addition turns the ENS160 module into a wireless air-quality telemetry node that can feed data to dashboards, displays, or dataloggers without any cables.
+⸻
 
+🛠️ Next Steps
 
-[📘 **Source**](https://www.instructables.com/ENS160-AHT21-Sensor-for-Arduino/)
+I plan to:
+	•	🧾 3D-print a compact case for the transmitter and receiver units
+	•	🖥️ Add an OLED or TFT display to the RX side to show live AQI, eCO₂, and temperature/humidity data
+	•	📈 Optionally log readings or forward them to a PC or MQTT broker for long-term monitoring
+
+⸻
+
+📘 Source
+
+Based on: [Instructables](https://www.instructables.com/ENS160-AHT21-Sensor-for-Arduino/)
+Extended, cleaned, and tested with ESP8266 + ESP-NOW wireless telemetry by Me
