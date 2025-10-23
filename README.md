@@ -68,26 +68,25 @@ typedef struct __attribute__((packed)) {
   float    humidity;     // %RH
 } AirData_t;
 
+Compact (13 bytes) – efficient for ESP-NOW transmission
+Binary-safe – no String or text parsing
+Identical on both sender and receiver sides
 
-✅ Compact (13 bytes) – efficient for ESP-NOW transmission
-✅ Binary-safe – no String or text parsing
-✅ Identical on both sender and receiver sides
-
- How It Works
-	1.	Sender (TX) reads ENS160 + AHT21 data and transmits an AirData_t packet via ESP-NOW every 0.5 s.
-	2.	Receiver (RX) listens and prints incoming readings in human-readable form.
-	3.	Both devices operate on Wi-Fi channel 1, with the sender paired to the receiver’s AP MAC address.
+How It Works
+	Sender (TX) reads ENS160 + AHT21 data and transmits an AirData_t packet via ESP-NOW every 0.5 s.
+	Receiver (RX) listens and prints incoming readings in human-readable form.
+	Both devices operate on Wi-Fi channel 1, with the sender paired to the receiver’s AP MAC address.
 
 This extension effectively turns the ENS160 module into a wireless air-quality telemetry node that can feed data to dashboards, displays, or loggers — no cables, no router, just power.
 
 ⸻
 
-🛠️ Next Steps
+Next Steps
 
 I plan to:
-	•	🧾 3D-print a compact case for the transmitter and receiver units
-	•	🖥️ Add an OLED or TFT display to the RX side to show live AQI, eCO₂, and temperature/humidity data
-	•	📈 Optionally log readings or forward them to a PC or MQTT broker for long-term monitoring
+	🧾 3D-print a compact case for the transmitter and receiver units
+	🖥️ Add an OLED or TFT display to the RX side to show live AQI, eCO₂, and temperature/humidity data
+	📈 Optionally log readings or forward them to a PC or MQTT broker for long-term monitoring
 
 ⸻
 
