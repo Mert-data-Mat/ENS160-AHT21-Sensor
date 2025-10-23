@@ -91,8 +91,15 @@ This extension effectively turns the ENS160 module into a **wireless air-quality
 feed data to dashboards, displays, or data loggers — **no cables, no router, just power.**
 
 
-![Transmitter Side ](images/FJPJ494LR97Z1RS.png)
+![Transmitter Side ](images/IMG.jpeg)
 
+**Figure 3.** Transmitter Setup.
+
+
+
+![Serial Outputs via ESP NOW ](images/results.png)
+
+**Figure 4.** Outputs via ESP NOW
 ---
 
 ## 🛠️ Next Steps
