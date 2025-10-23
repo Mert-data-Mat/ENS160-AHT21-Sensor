@@ -83,12 +83,15 @@ typedef struct __attribute__((packed)) {
 
 ### 🧩 How It Works
 
-1. The **sender (TX)** reads ENS160 + AHT21 data and transmits an `AirData_t` packet via ESP-NOW every 0.5 s.  
+1. The **sender (TX)** reads ENS160 + AHT21 data and transmits an `AirData_t` packet via ESP-NOW.
 2. The **receiver (RX)** listens for packets and prints incoming readings in a clean, human-readable format.  
 3. Both devices operate on **Wi-Fi channel 1**, and the sender is paired to the receiver’s **AP MAC address**.
 
 This extension effectively turns the ENS160 module into a **wireless air-quality telemetry node** that can 
 feed data to dashboards, displays, or data loggers — **no cables, no router, just power.**
+
+
+![Transmitter Side ](images/FJPJ494LR97Z1RS.png)
 
 ---
 
