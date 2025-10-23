@@ -53,46 +53,52 @@ Install from **Arduino IDE → Library Manager**:
 | **Adafruit AHTX0** | For AHT20/AHT21 temperature & humidity |
 | *(optional)* **ScioSense ENS160** | For ENS160 high-level API (some boards use modified forks) |
 
+## 📡 Wireless ESP-NOW Extension (ESP8266)
 
-📡 Wireless ESP-NOW Extension (ESP8266)
+After confirming stable **ENS160 + AHT21** readings over I²C, I extended the project to work completely 
+**wirelessly** using **ESP-NOW** on two Wemos D1 mini boards.  
 
-After confirming stable ENS160 + AHT21 readings over I²C, I extended the project to work completely wirelessly using ESP-NOW on two Wemos D1 mini boards.
-This setup turns one board into a sensor node (TX) and another into a receiver (RX) that logs and displays data — no Wi-Fi network or internet required.
+This setup turns one board into a **sensor node (TX)** and another into a **receiver (RX)** that logs and 
+displays data — **no Wi-Fi network or internet required**.
 
+---
 
-**Data Packet Structure**
-'''cpp
-	typedef struct __attribute__((packed)) {
-	  uint8_t  aqi;          // Air Quality Index (1–5)
-	  uint16_t tvoc;         // Total VOC (ppb)
-	  uint16_t eco2;         // Equivalent CO₂ (ppm)
-	  float    temperature;  // °C
-	  float    humidity;     // %RH
-	} AirData_t;
-'''
-Compact (13 bytes) – efficient for ESP-NOW transmission
-Binary-safe – no String or text parsing
-Identical on both sender and receiver sides
+### 🧱 Data Packet Structure
 
-**How It Works**
+```cpp
+typedef struct __attribute__((packed)) {
+  uint8_t  aqi;          // Air Quality Index (1–5)
+  uint16_t tvoc;         // Total VOC (ppb)
+  uint16_t eco2;         // Equivalent CO₂ (ppm)
+  float    temperature;  // °C
+  float    humidity;     // %RH
+} AirData_t;
+```
 
-Sender (TX) reads ENS160 + AHT21 data and transmits an AirData_t packet via ESP-NOW every 0.5 s.
-Receiver (RX) listens and prints incoming readings in human-readable form.
-Both devices operate on Wi-Fi channel 1, with the sender paired to the receiver’s AP MAC address.
+✅ **Compact (13 bytes)** – efficient for ESP-NOW transmission  
+✅ **Binary-safe** – no `String` or text parsing  
+✅ **Identical structure** on both sender and receiver sides  
 
+---
 
-This extension effectively turns the ENS160 module into a wireless air-quality telemetry node that can feed data to dashboards, displays, or loggers — no cables, no router, just power.
+### 🧩 How It Works
 
-⸻
+1. The **sender (TX)** reads ENS160 + AHT21 data and transmits an `AirData_t` packet via ESP-NOW every 0.5 s.  
+2. The **receiver (RX)** listens for packets and prints incoming readings in a clean, human-readable format.  
+3. Both devices operate on **Wi-Fi channel 1**, and the sender is paired to the receiver’s **AP MAC address**.
 
-Next Steps
+This extension effectively turns the ENS160 module into a **wireless air-quality telemetry node** that can 
+feed data to dashboards, displays, or data loggers — **no cables, no router, just power.**
+
+---
+
+## 🛠️ Next Steps
 
 I plan to:
-	🧾 3D-print a compact case for the transmitter and receiver units
-	🖥️ Add an OLED or TFT display to the RX side to show live AQI, eCO₂, and temperature/humidity data
-	📈 Optionally log readings or forward them to a PC or MQTT broker for long-term monitoring
 
-⸻
+- 🧾 **3D-print a compact case** for both transmitter and receiver units.  
+- 🖥️ **Add an OLED or TFT display** to the RX side for real-time AQI, eCO₂, temperature, and humidity.  
+- 📈 **Optionally log readings** or forward them to a PC or MQTT broker for long-term monitoring.
 
 📘 Source
 
