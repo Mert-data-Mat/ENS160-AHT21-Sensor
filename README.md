@@ -58,6 +58,8 @@ Install from **Arduino IDE → Library Manager**:
 
 After confirming stable ENS160 + AHT21 readings over I²C, I extended the project to work completely wirelessly using ESP-NOW on two Wemos D1 mini boards.
 This setup turns one board into a sensor node (TX) and another into a receiver (RX) that logs and displays data — no Wi-Fi network or internet required.
+
+
 **Data Packet Structure**
 '''cpp
 	typedef struct __attribute__((packed)) {
