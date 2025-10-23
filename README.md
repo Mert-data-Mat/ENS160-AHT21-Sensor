@@ -63,10 +63,12 @@ Compact (13 bytes) – efficient for ESP-NOW transmission
 Binary-safe – no String or text parsing
 Identical on both sender and receiver sides
 
-How It Works
-	Sender (TX) reads ENS160 + AHT21 data and transmits an AirData_t packet via ESP-NOW every 0.5 s.
-	Receiver (RX) listens and prints incoming readings in human-readable form.
-	Both devices operate on Wi-Fi channel 1, with the sender paired to the receiver’s AP MAC address.
+**How It Works**
+
+Sender (TX) reads ENS160 + AHT21 data and transmits an AirData_t packet via ESP-NOW every 0.5 s.
+Receiver (RX) listens and prints incoming readings in human-readable form.
+Both devices operate on Wi-Fi channel 1, with the sender paired to the receiver’s AP MAC address.
+
 
 This extension effectively turns the ENS160 module into a wireless air-quality telemetry node that can feed data to dashboards, displays, or loggers — no cables, no router, just power.
 
