@@ -90,7 +90,6 @@ typedef struct __attribute__((packed)) {
 This extension effectively turns the ENS160 module into a **wireless air-quality telemetry node** that can 
 feed data to dashboards, displays, or data loggers — **no cables, no router, just power.**
 
-
 ![Transmitter Side ](images/IMG.jpeg)
 
 **Figure 3.** Transmitter Setup.
@@ -108,9 +107,25 @@ feed data to dashboards, displays, or data loggers — **no cables, no router, j
 
 I plan to:
 
-- 🧾 **3D-print a compact case** for both transmitter and receiver units.  
-- 🖥️ **Add an OLED or TFT display** to the RX side for real-time AQI, eCO₂, temperature, and humidity.  
+- 🧾 **3D-print a compact case** for both transmitter and receiver units.   **DONE ✅**
+- 🖥️ **Add an OLED or TFT display** to the RX side for real-time AQI, eCO₂, temperature, and humidity.  **DONE ✅**
 - 📈 **Optionally log readings** or forward them to a PC or MQTT broker for long-term monitoring.
+-----------
+
+## Latest updates
+
+- Printed a compact case for the TX side housing. 
+
+![RX with casing](images/RX_final.jpeg)
+
+**Figure 5.** Wiring looks messy I know but I didn't wanna solder the parts for using them in future.
+
+
+
+![RX with casing](images/IMG_2957.jpeg)
+
+**Figure 5.** TFT Display shows the real time data coming from the TX case.
+
 
 📘 Source
 
