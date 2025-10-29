@@ -111,6 +111,15 @@ I plan to:
 - 🧾 **3D-print a compact case** for both transmitter and receiver units.  
 - 🖥️ **Add an OLED or TFT display** to the RX side for real-time AQI, eCO₂, temperature, and humidity.  
 - 📈 **Optionally log readings** or forward them to a PC or MQTT broker for long-term monitoring.
+-----------
+
+## Latest updates
+
+- Printed a compact case for the TX side housing. 
+
+![RX with casing](images/RX_final.jpeg)
+
+**Figure 5.** Wiring looks messy I know but I didn't wanna solder the parts for using them in future.
 
 📘 Source
 
