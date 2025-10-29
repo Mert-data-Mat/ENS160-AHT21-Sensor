@@ -90,8 +90,7 @@ typedef struct __attribute__((packed)) {
 This extension effectively turns the ENS160 module into a **wireless air-quality telemetry node** that can 
 feed data to dashboards, displays, or data loggers — **no cables, no router, just power.**
 
-
-![Transmitter Side ](images/IMG.jpeg)
+<img src="images/IMG.jpeg" width="300" height="200" alt="Project Demo">
 
 **Figure 3.** Transmitter Setup.
 
