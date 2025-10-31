@@ -59,13 +59,13 @@ void setup() {
   Serial.print(F("ENS160 init @0x53... "));
   ens160.begin();                                // ScioSense begin() has no return on some forks
   if (!ens160.available()) {
-    Serial.println(F("FAILED (not available). Check wiring: CS=3.3V, ADD=GND, VCC=3.3V"));
+    Serial.println(F("FAILED (not available). Check wiring."));
   } else {
     Serial.println(F("OK"));
     printEns160Info();
 
     Serial.print(F("\tSet STANDARD mode... "));
-    bool modeOK = ens160.setMode(ENS160_OPMODE_STD);
+    bool modeOK = ens160.setMode(ENS160_OPMODE_STD); // I dont think we need the set mode for normal use but anyway.
     Serial.println(modeOK ? F("OK") : F("FAILED"));
 
     Serial.println(F("Warm-up ~2 seconds..."));
@@ -111,8 +111,8 @@ void loop() {
     ens160.measureRaw(true);
 
     // Read values
-    uint8_t  aqi  = ens160.getAQI();     // 1..5 (0 means not ready)
-    uint16_t tvoc = ens160.getTVOC();    // ppb
+    uint8_t  aqi  = ens160.getAQI();     // Air quality score 1 to 5 (0 means not ready)
+    uint16_t tvoc = ens160.getTVOC();    // ppb , organic molecules in the air
     uint16_t eco2 = ens160.geteCO2();    // ppm
 
     Serial.print(F("AQI "));
