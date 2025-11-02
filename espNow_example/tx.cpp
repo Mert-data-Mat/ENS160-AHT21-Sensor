@@ -6,7 +6,7 @@ extern "C" {
   #include <espnow.h> 
 }
 
-uint8_t RX_MAC[] = { 0x08, 0x3A, 0x8D, 0xE7, 0x55, 0x4A };  // example
+uint8_t RX_MAC[] = { 0x08, 0x3A, 0x8D, 0xE7, 0x55, 0x4A };  // example of my esp's mac address
   
 typedef struct _attribute_((packed)) {
   uint8_t  aqi;      // Air Quality Index (1–5)
@@ -59,7 +59,7 @@ void setup() {
     Serial.println("Could not find AHT? Check wiring");
     while (1) delay(10);
   }
-  Serial.println("AHT10 or AHT20 found");
+  Serial.println("AHT20 found");
   //AHT20 end
 
 }
