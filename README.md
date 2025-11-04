@@ -111,7 +111,8 @@ I plan to:
 - 🖥️ **Add an OLED or TFT display** to the RX side for real-time AQI, eCO₂, temperature, and humidity.  **DONE ✅**
 - 📈 **ESP Deep Sleep**, I just discovered how low power needed while using with the Deep-Sleep. This way I can put the 
 TX side to my balcony and totally forget about it. 3 or 4 data packages a day is more than enough to monitor the weather
-changes in long time. IN PROGRESS ☑️
+changes in long time. [🤖 **Check out here**](https://github.com/Mert-data-Mat/Air-Telemetry-with-ESP)
+
 -----------
 
 ## Latest updates
